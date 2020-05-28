@@ -5,13 +5,13 @@
 
 /**************************************************************************/
 
-// Data wire is conntec to the Arduino digital pin 4
+//! Data wire is conntec to the Arduino digital pin 4.
 #define ONE_WIRE_BUS 4
 
-// Setup a oneWire instance to communicate with any OneWire devices
+//! Setup a oneWire instance to communicate with any OneWire devices.
 OneWire oneWire(ONE_WIRE_BUS);
 
-// Pass our oneWire reference to Dallas Temperature sensor 
+//! Pass our oneWire reference to Dallas Temperature sensor.
 DallasTemperature sensors(&oneWire);
 
 /**************************************************************************/

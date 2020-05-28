@@ -46,9 +46,9 @@ SNODE_ERROR SNODE_GetJoystickData(void * data)
 
 SNODE_ERROR SNODE_GetButtonData(void * data)
 {
-  uint32_t *pButtonss = (uint32_t *) data;
+  uint32_t *pButtons = (uint32_t *) data;
 
-  *pButtonss = !digitalRead(PD7);
+  *pButtons = !digitalRead(PD7);
 
   return SNODE_SUCCESS;
 }
