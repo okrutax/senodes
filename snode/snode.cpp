@@ -322,7 +322,7 @@ static bool SNODE_SendTransportTypeReqFrame(void *)
 
   while ( i < pCtx->cacheNodeLength )
   {
-    if ( (0x00 != pCacheNode->node.sourceId) && (false == pCacheNode->dataNodeIsRead) ) //! pCacheNode->dataNodeIsRead sets to true if response is received.
+    if ( (0x00 != pCacheNode->node.sourceId) && (false == pCacheNode->dataNodeIsRead) && (0x00 != pCtx->currentIndex) ) //! pCacheNode->dataNodeIsRead sets to true if response is received.
     {
       uint8_t                     *pBuffer         = (uint8_t *) malloc( (pCtx->currentIndex * sizeof(SNODE_NODE_DATA_TYPE)) + sizeof(SNODE_TRANSPORT_FRAME_HEAD)+ sizeof(uint8_t) ); //! sizeof(uint8_t) is needed for checksum.
       PSNODE_TRANSPORT_FRAME_HEAD  pTransportFrame = (PSNODE_TRANSPORT_FRAME_HEAD) pBuffer;

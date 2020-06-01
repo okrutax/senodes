@@ -284,8 +284,8 @@ typedef enum _SNODE_TP_RECEIVE_STATUS_TYPE
  */
 typedef struct _SNODE_TP_PCI_TYPE
 {
-  uint8_t type     :4;
   uint8_t reserved :4;
+  uint8_t type     :4;
   uint8_t data[];
 }SNODE_TP_PCI_TYPE, *PSNODE_TP_PCI_TYPE;
 
@@ -293,8 +293,8 @@ typedef struct _SNODE_TP_PCI_TYPE
 
 typedef struct _SNODE_TP_SINGLE_FRAME
 {
-  uint8_t type :4;
   uint8_t dl   :4; //! Data length.
+  uint8_t type :4;
   uint8_t data[];
 }SNODE_TP_SINGLE_FRAME, *PSNODE_TP_SINGLE_FRAME;
 
@@ -302,8 +302,8 @@ typedef struct _SNODE_TP_SINGLE_FRAME
 
 typedef struct _SNODE_TP_FIRST_FRAME
 {
-  uint8_t type   :4;
   uint8_t dlHigh :4;
+  uint8_t type   :4;
   uint8_t dlLow;
   uint8_t data[];
 }SNODE_TP_FIRST_FRAME, *PSNODE_TP_FIRST_FRAME;
@@ -312,8 +312,8 @@ typedef struct _SNODE_TP_FIRST_FRAME
 
 typedef struct _SNODE_TP_CONSECUTIVE_FRAME
 {
-  uint8_t type :4;
   uint8_t sn   :4; //! Sequence number.
+  uint8_t type :4;
   uint8_t data[];
 }SNODE_TP_CONSECUTIVE_FRAME, *PSNODE_TP_CONSECUTIVE_FRAME;
 
@@ -321,8 +321,8 @@ typedef struct _SNODE_TP_CONSECUTIVE_FRAME
 
 typedef struct _SNODE_TP_FLOW_CONTROL
 {
-  uint8_t type :4;
   uint8_t fs   :4; //! Flow status.
+  uint8_t type :4;
   uint8_t bs;      //! Block size.
   uint8_t stMin;
 }SNODE_TP_FLOW_CONTROL, *PSNODE_TP_FLOW_CONTROL;
