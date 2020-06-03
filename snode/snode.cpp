@@ -988,7 +988,7 @@ static SNODE_TP_ERROR SNODE_TP_ReceiveFlowControlFrame(PSNODE_TP_LINK_CTX pLink,
     //! Check the message length of the flow control frame.
     if ( length == sizeof(*pFlowControl) )
     {
-      switch (pFlowControl->fs)
+      switch ( pFlowControl->fs )
       {
         case SNODE_TP_PCI_FLOW_STATUS_OVERFLOW: //! If buffer is overflow.
               pLinkSend->status = SNODE_TP_SEND_STATUS_ERROR;

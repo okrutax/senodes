@@ -23,7 +23,7 @@ extern "C"
  * Configuration of SNODE (Sensor Node).                                  *
  **************************************************************************
  */
-//! #define _SNODE_DEBUG_  //! Uncommet it to show debug information.
+#define _SNODE_DEBUG_  //! Uncommet it to show debug information.
 
 #define SNODE_MAX_NUM_OF_SENSORS             (0x04) //! The max number of sensors for each node (max value is 0x0F).
 #define SNODE_CACHE_ENTRY_MAX_NUM_OF_NODES   (0x08) //! The max number of nodes in one network.
@@ -64,14 +64,15 @@ typedef enum _SNODE_SENSOR_TYPE
   SNODE_NONE_SENSOR_TYPE              = 0x00,
 
 //! Output interfaces - SNODE_OUTPUT_SENSOR_MODE_TYPE.
-  SNODE_DC_MOTOR_SENSOR_TYPE          = 0x01, //! DC motor.
-  SNODE_STEPPER_MOTOR_SENSOR_TYPE     = 0x02, //! Stepper motor.
-  SNODE_SERVO_SENSOR_TYPE             = 0x04, //! Servo motor.
-  SNODE_RGB_LED_SENSOR_TYPE           = 0x08, //! RGB led.
-  SNODE_MATRIX_LED_SENSOR_TYPE        = 0x10, //! Matrix led.
-  SNODE_SPEAKER_SENSOR_TYPE           = 0x20, //! Speaker sensor.
-  SNODE_BUZZER_SENSOR_TYPE            = 0x40, //! Buzzer.
-  SNODE_DISPLAY_SENSOR_TYPE           = 0x80, //! Display.
+  SNODE_DC_MOTOR_SENSOR_TYPE          = 0x01,  //! DC motor.
+  SNODE_STEPPER_MOTOR_SENSOR_TYPE     = 0x02,  //! Stepper motor.
+  SNODE_SERVO_SENSOR_TYPE             = 0x04,  //! Servo motor.
+  SNODE_LED_SENSOR_TYPE               = 0x08,  //! Led.
+  SNODE_RGB_LED_SENSOR_TYPE           = 0x10,  //! RGB led.
+  SNODE_MATRIX_LED_SENSOR_TYPE        = 0x20,  //! Matrix led.
+  SNODE_SPEAKER_SENSOR_TYPE           = 0x40,  //! Speaker sensor.
+  SNODE_BUZZER_SENSOR_TYPE            = 0x80,  //! Buzzer.
+  SNODE_DISPLAY_SENSOR_TYPE           = 0x100, //! Display.
 
 //! Input interfaces - SNODE_INPUT_SENSOR_MODE_TYPE.
   SNODE_COLOR_SENSOR_TYPE             = 0x01,   //! Color.
