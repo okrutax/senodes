@@ -12,3 +12,4 @@ In an implementation of SNODE each node could have a few sensors. Each sensor of
 
 Using the SNODE library simplifies the development process, enabling you to build connected devices in minutes and bring your idea to life.
 
+For more information, please refer to [senodes page](https://www.senodes.com/docs/sensor-node/introduction/about/).
