@@ -34,13 +34,13 @@ On the picture below with the help of arrows is shown schematic connection betwe
 
 A short video below shows how the SNODE network works.
 
-[![Senodes modules communicate between](https://www.senodes.com/wp-content/uploads/2020/07/4QovW0.gif)](https://youtu.be/tX2KFh9Pr6U)
+![SNODE network works](https://www.senodes.com/wp-content/uploads/2020/07/4QovW0.gif)
 
 **SENODES** is set of hexagonal sensors allows to create various inventions using the SNODE library.
 
 The video below shows how Senodes modules communicate between each other using the **SNODE** library.
 
-[![Senodes modules communicate between](https://www.senodes.com/wp-content/uploads/2020/07/P7oK5y.gif)](https://youtu.be/yhjiUp-Ipxg)
+![Senodes modules communicate between](https://www.senodes.com/wp-content/uploads/2020/07/P7oK5y.gif)
 
 Using the SNODE library simplifies the development process, enabling you to build connected devices in minutes and bring your idea to life.
 
