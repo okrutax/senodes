@@ -10,10 +10,12 @@
 **SNODE** (Sensor Node)  is an open source library that allows to make it easy to build a multi-master serial bus network for hot-plugging nodes with sensors.
 
 **Hardware support**
+
 - **Arduino** ( Nano, Uno, Micro );
 - CAN controller ( **MCP2515** );
 
 **IDE**
+
 - PlatformIO
 
 **Source code**
