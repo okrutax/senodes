@@ -3,7 +3,9 @@
 
 /**************************************************************************/
 
-#define CAN_FRAME_SOURCE_ID  (70)
+#define CAN_FRAME_SOURCE_ID           (70)
+#define REMOTE_CAN_FRAME_SOURCE_ID60  (60)
+#define REMOTE_CAN_FRAME_SOURCE_ID50  (50)
 
 #define SNODE_LED_R         (PD2)
 #define SNODE_LED_G         (PD3)
@@ -18,9 +20,9 @@ SNODE_ERROR SNODE_SetLedData(void *data);
 SNODE_SENSOR_REG SNODE_LedSensor =
 {
   .addr        = 0x00,
-  .type        = SNODE_LED_SENSOR_TYPE,
+  .type        = SNODE_RGB_LED_SENSOR_TYPE,
   .mode        = SNODE_OUTPUT_SENSOR_MODE_TYPE,
-  .subscriber  = SNODE_BUTTONS_SENSOR_TYPE, // Output interface should be subscribed to the other input or control interfaces.
+  .subscriber  = SNODE_BUTTONS_SENSOR_TYPE,  // Output interface should be subscribed to the other input or control interfaces.
   .callback = SNODE_SetLedData,
 };
 
@@ -32,7 +34,7 @@ SNODE_ERROR SNODE_SetLedData(void * data)
 
   if ( pSensorCallbackData->type & SNODE_BUTTONS_SENSOR_TYPE )
   {
-    if ( 60 == pSensorCallbackData->id )
+    if ( REMOTE_CAN_FRAME_SOURCE_ID60 == pSensorCallbackData->id )
     {
       if ( pSensorCallbackData->data )
       {
@@ -44,9 +46,9 @@ SNODE_ERROR SNODE_SetLedData(void * data)
       }
     }
 
-    if ( 50 == pSensorCallbackData->id )
+    if ( REMOTE_CAN_FRAME_SOURCE_ID50 == pSensorCallbackData->id )
     {
-      if ( 2 == pSensorCallbackData->addr )
+      if ( 0x02 == pSensorCallbackData->addr )
       {
         if ( pSensorCallbackData->data )
         {
@@ -58,7 +60,7 @@ SNODE_ERROR SNODE_SetLedData(void * data)
         }
       }
 
-      if ( 3 == pSensorCallbackData->addr )
+      if ( 0x03 == pSensorCallbackData->addr )
       {
         if ( pSensorCallbackData->data )
         {
