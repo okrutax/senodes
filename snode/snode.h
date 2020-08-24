@@ -103,7 +103,7 @@ typedef SNODE_ERROR (* SNODE_SENSOR_CALLBACK)(void *);
 
 /**************************************************************************/
 
-typedef struct _SNODE_SENSOR_REG //! Registration.
+typedef struct __attribute__((packed, aligned(1))) _SNODE_SENSOR_REG //! Registration.
 {
   uint8_t                     addr; //! Generated automatically when a new record is added by the SNODE_Registration function.
   const uint16_t              type; //! SNODE_SENSOR_TYPE.
@@ -139,7 +139,7 @@ typedef struct _SNODE_GET_CMD_HANDLER
  * SNODE Frame head.                                                      *
  **************************************************************************
  */
-typedef struct _SNODE_FRAME_HEAD_CMD
+typedef struct __attribute__((packed, aligned(1))) _SNODE_FRAME_HEAD_CMD
 {
   uint8_t cmd;    //! SNODE_CMD (5 bits).
   uint8_t data[];
@@ -149,7 +149,7 @@ typedef struct _SNODE_FRAME_HEAD_CMD
  * SNODE Discover command.                                                *
  **************************************************************************
  */
-typedef struct _SNODE_BROADCAST_TYPE
+typedef struct __attribute__((packed, aligned(1))) _SNODE_BROADCAST_TYPE
 {
   uint16_t sourceId        :11; //! SID[10:0]: Standard Identifier bits.
   uint16_t numberOfSensors :4 ; //! Sensors which are used for one node.
@@ -158,7 +158,7 @@ typedef struct _SNODE_BROADCAST_TYPE
 
 /**************************************************************************/
 
-typedef struct _SNODE_DISCOVER_CMD_REQ //! Don't need a response.
+typedef struct __attribute__((packed, aligned(1))) _SNODE_DISCOVER_CMD_REQ //! Don't need a response.
 {
   //! TODO: Should be added physical layer types (MCP or NRF).
   SNODE_BROADCAST_TYPE node;
@@ -187,7 +187,7 @@ typedef enum _SNODE_TRANSPORT_CMD_FLAGS
  * SNODE Transport frame head.                                            *
  **************************************************************************
  */
-typedef struct _SNODE_TRANSPORT_FRAME_HEAD
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TRANSPORT_FRAME_HEAD
 {
   uint16_t sourceId :11;
   uint16_t cmd      :3 ; //! SNODE_TRANSPORT_PACKET_CMD.
@@ -200,7 +200,7 @@ typedef struct _SNODE_TRANSPORT_FRAME_HEAD
  * SNODE Transport type command.                                          *
  **************************************************************************
  */
-typedef struct _SNODE_NODE_DATA_TYPE
+typedef struct __attribute__((packed, aligned(1))) _SNODE_NODE_DATA_TYPE
 {
   uint32_t addrOfSensor     : 4;
   uint32_t type             :16; //! SNODE_SENSOR_TYPE.
@@ -213,7 +213,7 @@ typedef struct _SNODE_NODE_DATA_TYPE
  * SNODE Transport subscriber command.                                    *
  **************************************************************************
  */
-typedef struct _SNODE_SUBSCRIBER_FRAME_HEAD
+typedef struct __attribute__((packed, aligned(1))) _SNODE_SUBSCRIBER_FRAME_HEAD
 {
   uint8_t numOfSubscriberData;
   uint8_t data[];             //! Pointer to SNODE_SUBSCRIBER_DATA_TYPE.
@@ -222,7 +222,7 @@ typedef struct _SNODE_SUBSCRIBER_FRAME_HEAD
 
 /**************************************************************************/
 
-typedef struct _SNODE_SUBSCRIBER_DATA_TYPE
+typedef struct __attribute__((packed, aligned(1))) _SNODE_SUBSCRIBER_DATA_TYPE
 {
   uint16_t destAddrOfSensor       :4;
   uint16_t sourceAddrOfSensor     :4;
@@ -283,7 +283,7 @@ typedef enum _SNODE_TP_RECEIVE_STATUS_TYPE
  * SNODE TP Frame defination.                                             *
  **************************************************************************
  */
-typedef struct _SNODE_TP_PCI_TYPE
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_PCI_TYPE
 {
   uint8_t reserved :4;
   uint8_t type     :4;
@@ -292,7 +292,7 @@ typedef struct _SNODE_TP_PCI_TYPE
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_SINGLE_FRAME
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_SINGLE_FRAME
 {
   uint8_t dl   :4; //! Data length.
   uint8_t type :4;
@@ -301,7 +301,7 @@ typedef struct _SNODE_TP_SINGLE_FRAME
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_FIRST_FRAME
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_FIRST_FRAME
 {
   uint8_t dlHigh :4;
   uint8_t type   :4;
@@ -311,7 +311,7 @@ typedef struct _SNODE_TP_FIRST_FRAME
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_CONSECUTIVE_FRAME
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_CONSECUTIVE_FRAME
 {
   uint8_t sn   :4; //! Sequence number.
   uint8_t type :4;
@@ -320,7 +320,7 @@ typedef struct _SNODE_TP_CONSECUTIVE_FRAME
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_FLOW_CONTROL
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_FLOW_CONTROL
 {
   uint8_t fs   :4; //! Flow status.
   uint8_t type :4;
@@ -356,7 +356,7 @@ typedef enum _SNODE_TP_PCI_FLOW_STATUS_TYPE
  * SNODE TP Link ctx.                                                     *
  **************************************************************************
  */
-typedef struct _SNODE_TP_LINK_FRAME_CTX
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_LINK_FRAME_CTX
 {
   //! Message buffer.
   uint8_t buffer[SNODE_TP_MAX_BUFFER_MESSAGE_SIZE];
@@ -371,7 +371,7 @@ typedef struct _SNODE_TP_LINK_FRAME_CTX
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_LINK_TIMER_CTX
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_LINK_TIMER_CTX
 {
   uint32_t nBs; //! Timeout on the Sender side.
   uint32_t nCr; //! Timeout on the Receiver side.
@@ -379,7 +379,7 @@ typedef struct _SNODE_TP_LINK_TIMER_CTX
 
 /**************************************************************************/
 
-typedef struct _SNODE_TP_LINK_CTX
+typedef struct __attribute__((packed, aligned(1))) _SNODE_TP_LINK_CTX
 {
   uint16_t                id; //! Used to reply the consecutive frames.
   SNODE_TP_LINK_FRAME_CTX send;
@@ -403,7 +403,7 @@ typedef struct _SNODE_TP_PCI_CMD_HANDLER
  * SNODE Cache entry and sensor ctxs.                                     *
  **************************************************************************
  */
-typedef struct _SNODE_CACHE_ENTRY
+typedef struct __attribute__((packed, aligned(1))) _SNODE_CACHE_ENTRY
 {
   SNODE_BROADCAST_TYPE node;
   bool                 dataNodeIsRead;
@@ -414,7 +414,7 @@ typedef struct _SNODE_CACHE_ENTRY
 
 /**************************************************************************/
 
-typedef struct _SNODE_SENSOR_CTX
+typedef struct __attribute__((packed, aligned(1))) _SNODE_SENSOR_CTX
 {
   uint8_t                      currentIndex; //! It uses for pSensor[SNODE_MAX_NUM_OF_SENSORS].
   PSNODE_SENSOR_REG            pSensor[SNODE_MAX_NUM_OF_SENSORS];
@@ -429,7 +429,7 @@ typedef struct _SNODE_SENSOR_CTX
  * SNODE Sensor callback data.                                            *
  **************************************************************************
  */
-typedef struct _SNODE_SENSOR_CALLBACK_DATA
+typedef struct __attribute__((packed, aligned(1))) _SNODE_SENSOR_CALLBACK_DATA
 {
   uint16_t id;
   uint8_t  addr;

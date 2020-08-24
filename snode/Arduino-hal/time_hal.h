@@ -7,8 +7,8 @@
  * @brief      It's the HAL of get milliseconds function for Arduino.     *
  *************************************************************************/
 
-#ifndef _TIME_H_ // Time
-#define _TIME_H_ 
+#ifndef _TIME_HAL_H_ // Time
+#define _TIME_HAL_H_ 
 
 #ifdef _cplusplus_
 extern "C"
@@ -29,4 +29,4 @@ void     TIME_DelayUs(unsigned long us);
 }
 #endif
 
-#endif // _TIME_H_
+#endif // _TIME_HAL_H_

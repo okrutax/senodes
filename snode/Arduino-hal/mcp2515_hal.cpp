@@ -8,8 +8,15 @@
  *             Controller Area Network(CAN) for Arduino.                  *
  *************************************************************************/
 
+#include <Arduino.h>
 #include <SPI.h>
 #include "mcp2515_hal.h"
+
+/**************************************************************************/
+
+#if defined (snodeesp32)
+  SPIClass HardwareSPI(HSPI);
+#endif
 
 /**************************************************************************
  * Static function declarations.                                          *
@@ -36,6 +43,9 @@ MCP2515_HAL_REG  Mcp2515HalReg =
 
 static MCP2515_ERROR MCP2515_HalSpiInit(void)
 {
+#if defined (snodeesp32)
+  SPI = HardwareSPI;
+#endif
   SPI.begin();
   pinMode(MCP2515_HAL_CE_PIN, OUTPUT);
   digitalWrite(MCP2515_HAL_CE_PIN, HIGH);

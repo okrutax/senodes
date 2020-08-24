@@ -18,7 +18,11 @@ extern "C"
 
 #include "mcp2515.h"
 
+#if defined (snodeesp32)
+#define MCP2515_HAL_CE_PIN         (15)
+#else
 #define MCP2515_HAL_CE_PIN         (PIN_SPI_SS)
+#endif
 #define MCP2515_HAL_SPI_CLOCK      (10000000) //! 10MHz.
 
 extern MCP2515_HAL_REG  Mcp2515HalReg;

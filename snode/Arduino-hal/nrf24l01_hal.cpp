@@ -7,6 +7,7 @@
  * @brief      The hal of the NRF24L01P+ driver for Arduino.              *
  *************************************************************************/
 
+#include <Arduino.h>
 #include <SPI.h>
 #include "nrf24l01_hal.h"
 

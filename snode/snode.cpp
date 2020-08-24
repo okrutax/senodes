@@ -638,7 +638,7 @@ static void SNODE_TransportCmd(void * request , uint8_t * requestLength)
           }
           else if ( SNODE_TRANSPORT_CMD_RSP_FLAG == pTransportFrame->flag ) //! Response.
           {
-            if ( outSize == sizeof(PSNODE_TRANSPORT_FRAME_HEAD) ) //! TODO: Received a response. An additional ckecks should be added.
+            if ( outSize == sizeof(SNODE_TRANSPORT_FRAME_HEAD) ) //! TODO: Received a response. An additional ckecks should be added.
             {
               pCacheNode->dataNodeIsRead = true; //! Data was saved on the other side of the node.
             }

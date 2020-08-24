@@ -8,6 +8,7 @@
  *************************************************************************/
 
 #include <Arduino.h>
+#include "time_hal.h"
 
 /**************************************************************************
  * @brief This function returns the number of milliseconds passed since   *
